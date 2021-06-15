@@ -1,0 +1,196 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  min-height: 100%;
+  background: #1d1f22;
+  --bg_color: rgb(29, 32, 34);
+
+  --idle_text: #e0dede;
+
+  --app_main_column: 750px;
+  --app_border: 1px solid #0000004b;
+  --app_border_radius: 20px;
+  --app_active_color: #0e9cd4;
+  --app_bg_color: #25282c;
+  --app_warn_color: #cf2323;
+  --app_shadow_color: #0000008f;
+
+  --header_padding: 40px;
+
+  --input_font_color: #d4d3d3;
+  --input_label_font_color: #5292bd;
+  --input_bg_color: #0000002f;
+  --input_border_radius: 10px;
+  --input_font_size: 16px;
+
+  --button_font_size: 18px;
+  --button_font_color: #e2e2e2;
+
+  --panel_head_font_size: 20px;
+  --panel_section_font_size: 18px;
+  --panel_input_font_size: 16px;
+  --panel_message_font_size: 16px;
+
+  --post_font_color: white;
+  --post_head_font_size: 22px;
+  --post_content_font_size: 18px;
+  --post_tag_font_color: white;
+  --post_like_font_size: 18px;
+
+  --comment_head_font_color: white;
+  --comment_font_size: 14px;
+  --comment_font_color: white;
+  --comment_like_font_size: 16px;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.page_container {
+  display: grid;
+  grid-template-columns: auto minmax(auto, var(--app_main_column)) auto;
+  grid-template-areas: ". page .";
+}
+
+.page {
+  position: relative;
+  grid-area: page;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  padding: 0 var(--header_padding);
+  gap: 10px;
+  background: #1d2022;
+  .home_link {
+    flex-shrink: 0;
+    width: 40px;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    svg {
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+    }
+  }
+  .login_link {
+    flex-shrink: 0;
+  }
+}
+
+.login_section {
+  display: grid;
+  grid-template-columns: auto minmax(auto, 500px) auto;
+  grid-template-areas: ". form .";
+  margin-top: 20px;
+}
+.form_container {
+  grid-area: form;
+  padding-bottom: 20px;
+  border: var(--border);
+  border-radius: 20px;
+  color: rgb(218, 216, 216);
+  .head {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    .title {
+      width: 100%;
+      padding-left: 20px;
+      font-size: 24px;
+      flex: 1;
+    }
+    .back_button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      svg {
+        height: 100%;
+        width: 50px;
+        padding: 10px;
+      }
+    }
+  }
+
+  .foot {
+    margin-top: 20px;
+    .question {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.text_right {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 4px 20px;
+}
+
+a,
+.link {
+  color: var(--idle_text);
+  text-decoration: none;
+}
+
+a:hover,
+.link:hover {
+  color: var(--app_active_color);
+}
+
+.err_message {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+  padding: 5px;
+  color: var(--idle_text);
+  background-color: var(--app_warn_color);
+}
+
+.spinner {
+  display: block;
+  width: 30px;
+  height: 30px;
+  color: var(--app_active_color);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

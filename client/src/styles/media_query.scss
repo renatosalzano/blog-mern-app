@@ -1,0 +1,20 @@
+@media (max-width: 769px) {
+  .layout {
+    --app_border_radius: 0;
+    --header_padding: 20px;
+  }
+  .post_container,
+  .user_header,
+  .add_post_button {
+    border-left: none;
+    border-right: none;
+    box-shadow: 0 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 481px) {
+  .layout {
+    --app_border_radius: 0;
+    --header_padding: 10px;
+  }
+}

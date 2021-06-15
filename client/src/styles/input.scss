@@ -1,0 +1,195 @@
+input,
+button,
+textarea {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  height: auto;
+}
+
+// INPUT TEXT
+
+.input_container {
+  --font_size: 20px;
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  background-color: var(--input_bg_color);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  .input {
+    position: relative;
+    width: 100%;
+    padding: 5px 10px;
+    line-height: var(--input_font_size) + 4px;
+    font-size: var(--input_font_size);
+    color: var(--input_font_color);
+    z-index: 10;
+  }
+  label {
+    --x: 0;
+    position: absolute;
+    display: flex;
+    gap: 4px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 5px 10px;
+    font-weight: 500;
+    font-size: var(--input_font_size);
+    color: var(--input_label_font_color);
+    transform: translate3d(0, var(--x), 0);
+    transition: transform 0.2s;
+  }
+  .view_password {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 4px;
+    z-index: 20;
+    svg {
+      width: 30px;
+      height: 100%;
+      padding: 2px;
+    }
+  }
+}
+
+.submit_button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  padding: 5px;
+  color: var(--idle_text);
+  font-size: var(--button_font_size);
+  background-color: var(--app_active_color);
+  transition: 0.2s ease-out;
+  &:hover {
+    filter: brightness(80%);
+  }
+}
+
+// INPUT TAG
+
+.input_tag_form {
+  position: relative;
+  width: 100%;
+  padding: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+
+  .rule_message,
+  .error_message {
+    color: var(--app_warn_color);
+  }
+
+  .input_tag_container {
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+    flex-wrap: wrap;
+    color: var(--input_font_color);
+    font-size: var(--input_font_size);
+    gap: 4px;
+    .input_tag {
+      flex: 1;
+      padding: 4px;
+      color: var(--input_font_color);
+      font-size: var(--input_font_size);
+    }
+    .tag {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 4px;
+      color: var(--input_font_color);
+      background: var(--app_active_color);
+    }
+  }
+}
+
+// TEXT AREA
+
+.textarea_container {
+  width: 100%;
+
+  label {
+    font-weight: 500;
+    font-size: 20px;
+    padding: 5px 10px;
+  }
+  .textarea_padding {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 5px;
+    .error_message {
+      color: var(--app_warn_color);
+    }
+    .textarea {
+      overflow-y: hidden;
+      width: 100%;
+      font-size: var(--input_font_size);
+      color: var(--input_font_color);
+    }
+    .counter {
+      display: flex;
+      justify-content: flex-end;
+      span {
+        font-size: 14px;
+        padding: 1px 2px 1px 1px;
+        color: var(--input_font_color);
+        border: 1px solid var(--input_font_color);
+      }
+    }
+  }
+}
+
+// input_container => error
+.error {
+  border-bottom: 1px solid var(--app_warn_color);
+  label {
+    color: var(--app_warn_color);
+  }
+}
+
+// search_bar
+
+.search_bar_container {
+  display: flex;
+  width: 100%;
+  max-width: 300px;
+  background-color: rgba(0, 0, 0, 0.199);
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  .search_bar {
+    flex: 1;
+    padding-left: 5px;
+    font-size: var(--input_font_size);
+    color: var(--idle_text);
+  }
+  .submit_search_button {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    svg {
+      padding: 4px;
+      color: var(--idle_text);
+      &:hover {
+        color: var(--app_active_color);
+      }
+    }
+  }
+}
+
+// search_bar_container => focus
+
+.sb_focus {
+  border: 1px solid var(--app_active_color);
+}
