@@ -4,7 +4,7 @@ import CommentList from "./comment/CommentList";
 import LikeContainer from "./detail/LikeContainer";
 import OptionButton from "../buttons/OptionButton";
 import Tags from "./detail/Tags";
-import { memo, useEffect } from "react";
+import { memo } from "react";
 import Content from "./detail/Content";
 
 const Post = ({

@@ -84,7 +84,7 @@ body,
   height: 40px;
   padding: 0 var(--header_padding);
   gap: 10px;
-  background: #1d2022;
+  background: var(--app_bg_color);
   .home_link {
     flex-shrink: 0;
     width: 40px;
