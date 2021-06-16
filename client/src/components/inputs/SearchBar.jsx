@@ -27,6 +27,7 @@ const SearchBar = () => {
         type="text"
         name="search"
         className="search_bar"
+        placeholder="Cerca un post"
         onChange={input_handler}
         value={input.search}
         onFocus={focus_handler}

@@ -7,7 +7,6 @@ const AddPostButton = ({ user, setNewPost }) => {
       <span onClick={() => setNewPost((state) => !state)}>
         Scrivi un post...
       </span>
-      <div />
     </div>
   );
 };
