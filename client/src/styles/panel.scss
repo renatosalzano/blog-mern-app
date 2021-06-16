@@ -25,10 +25,19 @@
 
   .head {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     font-size: var(--panel_head_font_size);
     padding: 10px;
     border-bottom: var(--app_border);
+    .close_panel_button {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      &:hover {
+        color: var(--app_warn_color);
+      }
+    }
   }
   .scroll_container {
     display: block;

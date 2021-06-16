@@ -15,7 +15,7 @@ const UserPanel = ({ close_event, update_account }) => {
       <div className="user_panel">
         <div className="head">
           <strong>Impostazioni</strong>
-          <span onClick={close_event}>
+          <span className="close_panel_button" onClick={close_event}>
             <VscClose />
           </span>
         </div>
