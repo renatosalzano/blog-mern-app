@@ -67,6 +67,7 @@ body,
 }
 
 .page_container {
+  flex: 1;
   display: grid;
   grid-template-columns: auto minmax(auto, var(--app_main_column)) auto;
   grid-template-areas: ". page .";
@@ -212,4 +213,12 @@ a:hover,
   100% {
     transform: rotate(360deg);
   }
+}
+
+footer {
+  display: block;
+  padding: 20px 10px;
+  text-align: center;
+  grid-area: page;
+  color: var(--app_active_color);
 }

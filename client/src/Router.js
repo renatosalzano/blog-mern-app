@@ -43,6 +43,7 @@ const Router = () => {
           />
         </Switch>
       </div>
+      <footer>@2021 Renato Salzano</footer>
     </BrowserRouter>
   );
 };
