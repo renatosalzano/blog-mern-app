@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
   const [signUp, setSignUp] = useState(false);
+  const [editMode, setEditMode] = useState(false);
   const [newPost, setNewPost] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const { auth } = useAuth();
@@ -97,6 +98,15 @@ export const AuthProvider = ({ children }) => {
     return true; // delete success
   };
 
+  const toggle_edit_mode = () => {
+    setEditMode((edit) => !edit);
+  };
+
+  useEffect(() => {
+    let layout = document.querySelector(".layout");
+    layout.style.overflowY = editMode ? "hidden" : "auto";
+  }, [editMode]);
+
   useEffect(() => {
     get_logged();
   }, [get_logged]);
@@ -117,6 +127,8 @@ export const AuthProvider = ({ children }) => {
         setSignUp,
         clear_error_message,
         errorMessage,
+        toggle_edit_mode,
+        editMode,
       }}
     >
       {children}

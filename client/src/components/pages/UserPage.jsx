@@ -7,7 +7,13 @@ import PostList from "../posts/PostList";
 import UserHeader from "../user/UserHeader";
 import UserPanel from "../user/UserPanel";
 
-const UserPage = ({ match, user, update_account }) => {
+const UserPage = ({
+  match,
+  user,
+  update_account,
+  user_panel,
+  toggle_user_panel,
+}) => {
   const user_name = match.params.user_name;
   // POST USER
   const {
@@ -22,7 +28,7 @@ const UserPage = ({ match, user, update_account }) => {
     loadingPost,
   } = usePostState();
   // USER INFO
-  const { userInfo, editMode, matched, toggle_edit_mode } = useUserPageState({
+  const { userInfo, matched } = useUserPageState({
     params: match.params.user_name,
     user_name: user && user.user_name,
   });
@@ -33,17 +39,17 @@ const UserPage = ({ match, user, update_account }) => {
 
   return (
     <div className="page">
-      {editMode && (
+      {user_panel && (
         <UserPanel
           update_account={update_account}
-          close_event={toggle_edit_mode}
+          close_event={toggle_user_panel}
         />
       )}
       {userInfo && (
         <UserHeader
           user={matched ? user : userInfo}
           matched={matched}
-          settings_event={toggle_edit_mode}
+          settings_event={toggle_user_panel}
         />
       )}
 

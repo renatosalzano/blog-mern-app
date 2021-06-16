@@ -11,7 +11,6 @@ export const useUserPageState = (init) => {
     id: init.user_name && init.user_name,
     target_id: init.params,
   });
-  const [editMode, setEditMode] = useState(false);
 
   const check_error = (res) => {
     switch (res.status) {
@@ -50,10 +49,6 @@ export const useUserPageState = (init) => {
     [find]
   );
 
-  const toggle_edit_mode = () => {
-    setEditMode((edit) => !edit);
-  };
-
   useEffect(() => {
     get_user(init.params);
   }, [get_user, init.params]);
@@ -61,8 +56,6 @@ export const useUserPageState = (init) => {
   return {
     userInfo,
     matched,
-    editMode,
-    toggle_edit_mode,
     error,
   };
 };

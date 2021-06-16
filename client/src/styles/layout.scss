@@ -37,9 +37,12 @@ body,
   --input_bg_color: #0000002f;
   --input_border_radius: 10px;
   --input_font_size: 16px;
+  --input_padding: 5px 10px;
 
   --button_font_size: 18px;
   --button_font_color: #e2e2e2;
+  --button_padding: 5px;
+  --button_margin_top: 20px;
 
   --panel_head_font_size: 20px;
   --panel_section_font_size: 18px;
@@ -78,6 +81,10 @@ body,
   grid-area: page;
   display: flex;
   flex-direction: column;
+}
+
+.fix {
+  overflow: hidden;
 }
 
 /* 

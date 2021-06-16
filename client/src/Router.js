@@ -9,7 +9,8 @@ import SinglePost from "./components/pages/SinglePost";
 import UserPage from "./components/pages/UserPage";
 
 const Router = () => {
-  const { user, log_out, update_account } = useContext(AuthContext);
+  const { user, log_out, update_account, toggle_edit_mode, editMode } =
+    useContext(AuthContext);
   return (
     <BrowserRouter>
       <Navbar user={user} log_out={log_out} />
@@ -38,6 +39,8 @@ const Router = () => {
                 {...props}
                 user={user}
                 update_account={update_account}
+                user_panel={editMode}
+                toggle_user_panel={toggle_edit_mode}
               />
             )}
           />

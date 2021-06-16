@@ -24,7 +24,7 @@ textarea {
   .input {
     position: relative;
     width: 100%;
-    padding: 5px 10px;
+    padding: var(--input_padding);
     line-height: var(--input_font_size) + 4px;
     font-size: var(--input_font_size);
     color: var(--input_font_color);
@@ -38,7 +38,7 @@ textarea {
     top: 0;
     left: 0;
     height: 100%;
-    padding: 5px 10px;
+    padding: var(--input_padding);
     font-weight: 500;
     font-size: var(--input_font_size);
     color: var(--input_label_font_color);
@@ -64,8 +64,8 @@ textarea {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 20px;
-  padding: 5px;
+  margin-top: var(--button_margin_top);
+  padding: var(--button_padding);
   color: var(--idle_text);
   font-size: var(--button_font_size);
   background-color: var(--app_active_color);
