@@ -73,6 +73,8 @@ body,
   --comment_font_color: #000000;
 
   --date_font_weight: 400;
+
+  --footer_bg_color: #ececec;
 }
 
 .dark_mode {
@@ -93,6 +95,8 @@ body,
   --comment_font_color: white;
 
   --date_font_weight: 200;
+
+  --footer_bg_color: #1d1f22;
 }
 
 .layout {
@@ -264,4 +268,5 @@ footer {
   text-align: center;
   grid-area: page;
   color: var(--app_active_color);
+  background-color: var(--footer_bg_color);
 }
