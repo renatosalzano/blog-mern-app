@@ -21,9 +21,10 @@
   grid-template-areas:
     "pic head"
     "pic info";
-  color: white;
+  color: var(--idle_text);
   border-radius: 0 0 var(--app_border_radius) var(--app_border_radius);
   background-color: var(--app_bg_color);
+  box-shadow: var(--box_shadow);
   .user_picture {
     grid-area: pic;
     height: 140px;
@@ -59,6 +60,6 @@
   }
   .head_color {
     grid-area: 1 / 1 / 2 / 3;
-    background-color: rgba(0, 0, 0, 0.075);
+    background-color: var(--input_bg_color);
   }
 }

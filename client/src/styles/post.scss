@@ -11,6 +11,7 @@
   overflow: hidden;
   border-radius: var(--app_border_radius);
   background-color: var(--app_bg_color);
+  box-shadow: var(--box_shadow);
 }
 
 .post {
@@ -214,6 +215,6 @@
 
 .date {
   font-size: 12px;
-  font-weight: 100;
+  font-weight: var(--date_font_weight);
   color: var(--idle_text);
 }

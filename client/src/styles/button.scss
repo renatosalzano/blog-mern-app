@@ -27,6 +27,7 @@
     backdrop-filter: blur(5px);
     border-radius: var(--input_border_radius);
     overflow: hidden;
+    box-shadow: var(--box_shadow);
     z-index: 200;
     .option {
       display: block;
@@ -134,8 +135,9 @@
   flex-direction: column;
   overflow: hidden;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.404);
-  backdrop-filter: blur(20px);
+  background-color: var(--input_bg_color);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--box_shadow);
   z-index: 1000;
   li {
     display: flex;
@@ -149,10 +151,11 @@
       background-color: var(--app_active_color);
     }
     .user_picture,
-    .logout_icon {
+    .logout_icon,
+    .theme_icon {
       width: 40px;
       height: 40px;
-      background-color: rgba(0, 0, 0, 0.404);
+      background-color: var(--input_bg_color);
       border-radius: 50%;
       svg {
         padding: 6px;
@@ -168,6 +171,7 @@
   padding: 10px;
   border-radius: var(--app_border_radius);
   background-color: var(--app_bg_color);
+  box-shadow: var(--box_shadow);
   span {
     cursor: text;
     flex: 1;

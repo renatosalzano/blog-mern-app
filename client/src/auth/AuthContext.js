@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
   const [editMode, setEditMode] = useState(false);
   const [newPost, setNewPost] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [theme, setTheme] = useState("");
   const { auth } = useAuth();
 
   const check_error = (res) => {
@@ -102,6 +103,35 @@ export const AuthProvider = ({ children }) => {
     setEditMode((edit) => !edit);
   };
 
+  const switch_theme = () => {
+    const root = document.querySelector("#root");
+    if (root.classList.contains("light_mode")) {
+      root.classList.replace("light_mode", "dark_mode");
+      localStorage.setItem("blog_app_theme", "dark");
+      setTheme("Light");
+    } else {
+      root.classList.replace("dark_mode", "light_mode");
+      localStorage.setItem("blog_app_theme", "light");
+      setTheme("Dark");
+    }
+  };
+
+  useEffect(() => {
+    const get_theme = localStorage.getItem("blog_app_theme");
+    const root = document.querySelector("#root");
+    switch (get_theme) {
+      case "light":
+        setTheme("Dark");
+        return root.classList.add("light_mode");
+      case "dark":
+        setTheme("Light");
+        return root.classList.add("dark_mode");
+      default:
+        setTheme("Dark");
+        return root.classList.add("light_mode");
+    }
+  }, []);
+
   useEffect(() => {
     let layout = document.querySelector(".layout");
     layout.style.overflowY = editMode ? "hidden" : "auto";
@@ -129,6 +159,8 @@ export const AuthProvider = ({ children }) => {
         errorMessage,
         toggle_edit_mode,
         editMode,
+        switch_theme,
+        theme,
       }}
     >
       {children}

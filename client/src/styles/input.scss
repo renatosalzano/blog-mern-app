@@ -165,7 +165,7 @@ textarea {
   display: flex;
   width: 100%;
   max-width: 300px;
-  background-color: rgba(0, 0, 0, 0.199);
+  background-color: var(--input_bg_color);
   border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 10px;
   .search_bar {

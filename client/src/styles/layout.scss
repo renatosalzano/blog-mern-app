@@ -15,32 +15,27 @@ body,
 #root {
   height: 100%;
   min-height: 100%;
-  background: #1d1f22;
-  --bg_color: rgb(29, 32, 34);
 
-  --idle_text: #e0dede;
+  --bg_color: rgb(29, 32, 34);
 
   --app_main_column: 750px;
   --app_border: 1px solid #0000004b;
   --app_border_radius: 20px;
   --app_active_color: #0e9cd4;
-  --app_bg_color: #25282c;
+
   --app_warn_color: #cf2323;
   --app_shadow_color: #0000008f;
 
-  --header_bg_color: #2b3138;
   --header_padding: 40px;
   --header_height: 40px;
 
-  --input_font_color: #d4d3d3;
   --input_label_font_color: #5292bd;
-  --input_bg_color: #0000002f;
+
   --input_border_radius: 10px;
   --input_font_size: 16px;
   --input_padding: 5px 10px;
 
   --button_font_size: 18px;
-  --button_font_color: #e2e2e2;
   --button_padding: 5px;
   --button_margin_top: 20px;
 
@@ -49,17 +44,55 @@ body,
   --panel_input_font_size: 16px;
   --panel_message_font_size: 16px;
 
-  --post_font_color: white;
   --post_head_font_size: 22px;
   --post_content_font_size: 18px;
-  --post_tag_font_color: white;
   --post_like_font_size: 18px;
 
-  --comment_head_font_color: white;
   --comment_head_font_size: 14px;
   --comment_font_size: 15px;
-  --comment_font_color: white;
   --comment_like_font_size: 16px;
+}
+
+.light_mode {
+  background: #ececec;
+  --app_bg_color: #ffffff;
+  --idle_text: #000000;
+
+  --input_bg_color: #8383831f;
+  --input_font_color: #000000;
+
+  --header_bg_color: #ffffff;
+
+  --button_font_color: #0e0e0e;
+  --box_shadow: 0 2px 3px #00000028;
+  --post_font_color: #000000;
+  --post_tag_font_color: #000000;
+
+  --comment_area_color: #0000000a;
+  --comment_head_font_color: #000000;
+  --comment_font_color: #000000;
+
+  --date_font_weight: 400;
+}
+
+.dark_mode {
+  background: #1d1f22;
+  --app_bg_color: #25282c;
+  --idle_text: #e0dede;
+  --header_bg_color: #2b3138;
+
+  --input_bg_color: rgba(0, 0, 0, 0.103);
+  --input_font_color: #d4d3d3;
+
+  --button_font_color: #e2e2e2;
+  --post_font_color: white;
+  --post_tag_font_color: white;
+
+  --comment_area_color: #00000021;
+  --comment_head_font_color: white;
+  --comment_font_color: white;
+
+  --date_font_weight: 200;
 }
 
 .layout {
@@ -93,6 +126,7 @@ body,
 */
 
 .navbar {
+  position: relative;
   display: flex;
   flex-shrink: 0;
   justify-content: space-between;
@@ -102,6 +136,8 @@ body,
   padding: 0 var(--header_padding);
   gap: 10px;
   background-color: var(--header_bg_color);
+  box-shadow: var(--box_shadow);
+  z-index: 50;
   .home_link {
     flex-shrink: 0;
     width: 40px;
