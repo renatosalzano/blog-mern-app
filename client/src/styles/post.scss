@@ -148,6 +148,9 @@
       color: var(--text_color);
       width: 40px;
       height: 40px;
+      svg {
+        padding: 4px;
+      }
     }
   }
   .form_ctrl {
