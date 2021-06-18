@@ -21,7 +21,7 @@
   grid-template-areas:
     "pic head"
     "pic info";
-  color: var(--idle_text);
+  color: var(--text_color);
   border-radius: 0 0 var(--app_border_radius) var(--app_border_radius);
   background-color: var(--app_bg_color);
   box-shadow: var(--box_shadow);

@@ -56,7 +56,7 @@ body,
 .light_mode {
   background: #ececec;
   --app_bg_color: #ffffff;
-  --idle_text: #000000;
+  --text_color: #000000;
 
   --input_bg_color: #8383831f;
   --input_font_color: #000000;
@@ -80,7 +80,7 @@ body,
 .dark_mode {
   background: #1d1f22;
   --app_bg_color: #25282c;
-  --idle_text: #e0dede;
+  --text_color: #e0dede;
   --header_bg_color: #2b3138;
 
   --input_bg_color: rgba(0, 0, 0, 0.103);
@@ -147,7 +147,7 @@ body,
     width: 40px;
     height: 100%;
     text-decoration: none;
-    color: var(--idle_text);
+    color: var(--text_color);
     svg {
       width: 100%;
       height: 100%;
@@ -226,7 +226,7 @@ body,
 
 a,
 .link {
-  color: var(--idle_text);
+  color: var(--text_color);
   text-decoration: none;
 }
 
@@ -241,7 +241,7 @@ a:hover,
   width: 100%;
   margin-top: 10px;
   padding: 5px;
-  color: var(--idle_text);
+  color: var(--text_color);
   background-color: var(--app_warn_color);
 }
 

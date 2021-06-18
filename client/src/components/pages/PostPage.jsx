@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 import { usePostState } from "../../hooks/usePostState";
 import Post404 from "../posts/detail/Post404";
 import PostLoading from "../posts/detail/PostLoading";
@@ -47,4 +47,4 @@ const PostPage = ({ match, user }) => {
   );
 };
 
-export default PostPage;
+export default memo(PostPage);

@@ -52,7 +52,9 @@ const TagList = ({ tag_arr, onTagClick }) => {
   return tag_arr.map((tag) => (
     <div key={tag} className="tag" onClick={() => onTagClick(tag)}>
       {tag}
-      <VscClose className="remove_tag" />
+      <div className="remove_tag">
+        <VscClose />
+      </div>
     </div>
   ));
 };

@@ -45,7 +45,7 @@ const InputText = ({
     <div
       className={`${class_name ? class_name : "input"}_container ${
         error ? "error" : ""
-      }`}
+      } ${isFocus}`}
       ref={boxRef}
     >
       {label && (
@@ -57,7 +57,7 @@ const InputText = ({
         </label>
       )}
       <input
-        className={`${class_name ? class_name : "input"} ${isFocus}`}
+        className={`${class_name ? class_name : "input"}`}
         type={viewPass ? "text" : type}
         name={name}
         onChange={onChange}

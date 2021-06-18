@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { VscClose } from "react-icons/vsc";
+import { VscArrowLeft } from "react-icons/vsc";
 import { useInputText } from "../../hooks/useInputText";
 import { useInputTag } from "../../hooks/useInputTag";
 import InputText from "../inputs/InputText";
@@ -57,12 +57,20 @@ const NewPost = ({ user, sumbit_post, open, server_error }) => {
     <div className="new_post_container">
       <div className="new_post">
         <div className="head">
+          <div className="close_button" onClick={close_window}>
+            <VscArrowLeft />
+          </div>
           <UserPicture src={user.pic} />
           <strong>Crea post</strong>
-          <div className="close_button" onClick={close_window}>
-            <VscClose />
-          </div>
+          <button className="submit_post_button" onClick={publish}>
+            Pubblica
+          </button>
         </div>
+        {server_error && (
+          <span className="err_message">
+            {"Si è verificato un errore imprevisto"}
+          </span>
+        )}
         <div className="scroll_container">
           <div className="form_ctrl">
             <InputText
@@ -74,17 +82,6 @@ const NewPost = ({ user, sumbit_post, open, server_error }) => {
               onBlur={clear_error}
               error={error.title}
               error_message="Richiesto"
-            />
-            <TextArea
-              name="content"
-              placeholder="Scrivi post..."
-              value={input.content}
-              onChange={input_handler}
-              onFocus={clear_error}
-              error={error.content}
-              error_message="Il post è vuoto..."
-              min_rows={10}
-              max_rows={50}
             />
             <InputTag
               name="tag"
@@ -98,16 +95,19 @@ const NewPost = ({ user, sumbit_post, open, server_error }) => {
               rule_warn={ruleWarn}
               rule_warn_message="Tag già inserito"
             />
+            <TextArea
+              name="content"
+              placeholder="Scrivi post..."
+              value={input.content}
+              onChange={input_handler}
+              onFocus={clear_error}
+              error={error.content}
+              error_message="Il post è vuoto..."
+              min_rows={10}
+              max_rows={50}
+            />
           </div>
-          {server_error && (
-            <span className="err_message">
-              {"Si è verificato un errore imprevisto"}
-            </span>
-          )}
         </div>
-        <button className="submit_post_button" onClick={publish}>
-          Pubblica
-        </button>
       </div>
     </div>
   );

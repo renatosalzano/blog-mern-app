@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { VscClose } from "react-icons/vsc";
+import { VscArrowLeft } from "react-icons/vsc";
 import { useInputText } from "../../hooks/useInputText";
 import { useInputTag } from "../../hooks/useInputTag";
 import InputTag from "../inputs/InputTag";
@@ -51,12 +51,20 @@ const UpdatePost = ({
     <div className="new_post_container">
       <div className="new_post">
         <div className="head">
+          <div className="close_button" onClick={toggle_edit_post}>
+            <VscArrowLeft />
+          </div>
           <UserPicture src={user.pic} />
           <strong>Modifica post</strong>
-          <div className="close_button" onClick={toggle_edit_post}>
-            <VscClose />
-          </div>
+          <button className="submit_post_button" onClick={update}>
+            Aggiorna
+          </button>
         </div>
+        {server_error && (
+          <span className="err_message">
+            {"Si è verificato un errore imprevisto"}
+          </span>
+        )}
         <div className="scroll_container">
           <div className="form_ctrl">
             <InputText
@@ -68,18 +76,6 @@ const UpdatePost = ({
               onBlur={clear_error}
               error={error.title}
               error_message="Richiesto"
-            />
-            <TextArea
-              name="content"
-              placeholder="Scrivi post..."
-              font_size={16}
-              value={input.content}
-              onChange={input_handler}
-              onFocus={clear_error}
-              error={error.content}
-              error_message="Il post è vuoto..."
-              min_rows={10}
-              max_rows={50}
             />
             <InputTag
               name="tag"
@@ -93,16 +89,19 @@ const UpdatePost = ({
               rule_warn={ruleWarn}
               rule_warn_message="Tag già inserito"
             />
+            <TextArea
+              name="content"
+              placeholder="Scrivi post..."
+              value={input.content}
+              onChange={input_handler}
+              onFocus={clear_error}
+              error={error.content}
+              error_message="Il post è vuoto..."
+              min_rows={10}
+              max_rows={50}
+            />
           </div>
-          {server_error && (
-            <span className="err_message">
-              {"Si è verificato un errore imprevisto"}
-            </span>
-          )}
         </div>
-        <button className="submit_post_button" onClick={update}>
-          Aggiorna Modifiche
-        </button>
       </div>
     </div>
   );

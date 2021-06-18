@@ -125,6 +125,7 @@
   flex-direction: column;
   width: 100%;
   max-height: 100%;
+  overflow: hidden;
   background-color: var(--app_bg_color);
   border-radius: var(--app_border_radius);
   .head {
@@ -132,7 +133,7 @@
     align-items: center;
     height: 70px;
     padding: 10px;
-    gap: 8px;
+    gap: 12px;
 
     strong {
       color: var(--post_font_color);
@@ -144,27 +145,21 @@
       height: 50px;
     }
     .close_button {
-      color: var(--app_warn_color);
-      width: 50px;
-      height: 100%;
-      cursor: pointer;
-      svg {
-        width: 100%;
-        height: 100%;
-        padding: 6px;
-      }
+      color: var(--text_color);
+      width: 40px;
+      height: 40px;
     }
   }
   .form_ctrl {
     background-color: var(--input_bg_color);
+    padding-bottom: 20px;
   }
   .submit_post_button {
     padding: 10px;
     font-size: var(--post_content_font_size);
     color: var(--post_font_color);
-    &:hover {
-      color: var(--app_active_color);
-    }
+    background-color: var(--app_active_color);
+    border-radius: 10px;
   }
 }
 
@@ -173,7 +168,7 @@
   flex-direction: column;
   padding: 20px 0;
   width: 100%;
-  color: var(--idle_text);
+  color: var(--text_color);
   span {
     text-align: center;
     font-size: 80px;
@@ -191,7 +186,7 @@
   border: var(--app_border);
   border-radius: var(--app_border_radius);
   padding: 20px;
-  color: var(--idle_text);
+  color: var(--text_color);
 }
 
 .post_loading {
@@ -216,5 +211,5 @@
 .date {
   font-size: 12px;
   font-weight: var(--date_font_weight);
-  color: var(--idle_text);
+  color: var(--text_color);
 }
