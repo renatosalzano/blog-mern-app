@@ -18,7 +18,7 @@ exports.GET_post = async (req, res) => {
       }
     }
 
-    const _posts = await Post.find(filter);
+    const _posts = await Post.find(filter).sort({ date: -1 });
 
     if (_posts.length === 0) return res.status(404).send();
     let posts = [];
