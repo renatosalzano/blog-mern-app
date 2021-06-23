@@ -4,7 +4,7 @@
 
 Author: **Renato Salzano**  
 Email: [renato.salzano92@gmail.com](mailto:renato.salzano92@gmail.com)  
-Link: [FindbookApp v1.0](https://renatosalzano.github.io/findbook-app/)
+Link: [Blog MERN v1.0](https://blog-mernstack-app.herokuapp.com/)
 
 ---
 
@@ -17,6 +17,7 @@ This is a fully functional blog system based on MERN stack.
 - [x] CRUD operation on profile, post, comment...
 - [x] Like system
 - [x] Minimal Design
+- [x] Dark Mode 
 - [x] Full responsive
 
 #### Front End
@@ -32,4 +33,7 @@ This is a fully functional blog system based on MERN stack.
 - Joi is used for data validation.
 - JSON WEB TOKEN is used to make authorized requests.
 
-#### 
+#### Database
+
+- MongoDB is used for build the database.
+- Mongoose is used for CRUD action.
