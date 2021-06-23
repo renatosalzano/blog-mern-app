@@ -20,6 +20,8 @@ This is a fully functional blog system based on MERN stack.
 - [x] Dark Mode 
 - [x] Full responsive
 
+---
+
 #### Front End
 
 - The client is developed entirely with React.
