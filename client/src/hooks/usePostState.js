@@ -102,7 +102,7 @@ export const usePostState = () => {
 
   const sort_posts = useCallback((arr_to_sort) => {
     arr_to_sort.sort((a, b) => {
-      return new Date(a.post.date) - new Date(b.post.date);
+      return new Date(b.post.date) - new Date(a.post.date);
     });
     return setPosts(arr_to_sort);
   }, []);

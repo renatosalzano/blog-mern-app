@@ -28,7 +28,7 @@
     align-items: center;
     height: 50px;
     gap: 10px;
-    div {
+    .post_info {
       display: flex;
       flex-direction: column;
     }
@@ -189,6 +189,7 @@
   border: var(--app_border);
   border-radius: var(--app_border_radius);
   padding: 20px;
+  margin-top: 20px;
   color: var(--text_color);
 }
 

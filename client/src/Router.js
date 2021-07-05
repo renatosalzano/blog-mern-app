@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { AuthContext } from "./auth/AuthContext";
 import Navbar from "./components/Navbar";
-import Home from "./components/pages/Home";
-import LoginPage from "./components/pages/LoginPage";
-import PostPage from "./components/pages/PostPage";
-import SinglePost from "./components/pages/SinglePost";
-import UserPage from "./components/pages/UserPage";
+import Home from "./pages/Home";
+import LogInPage from "./pages/LoginPage";
+import PostPage from "./pages/PostPage";
+import SinglePost from "./pages/SinglePost";
+import UserPage from "./pages/UserPage";
 
 const Router = () => {
   const { user, log_out, update_account, toggle_edit_mode, editMode } =
@@ -19,7 +19,7 @@ const Router = () => {
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
-          <Route path="/login" component={LoginPage} />
+          <Route path="/login" component={LogInPage} />
           <Route
             path="/home"
             render={(props) => <Home {...props} user={user} />}

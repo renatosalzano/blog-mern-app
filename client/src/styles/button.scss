@@ -29,7 +29,8 @@
     overflow: hidden;
     box-shadow: var(--box_shadow);
     z-index: 200;
-    .option {
+    .option,
+    .confirm_delete {
       display: block;
       padding: 10px;
       color: var(--input_font_color);
@@ -38,39 +39,24 @@
         background-color: var(--app_active_color);
       }
     }
-    .confirm_delete {
-      display: block;
-      span {
-        display: block;
-        padding: 4px 10px;
-        font-size: var(--input_font_size);
-        color: var(--app_warn_color);
+    .list_head {
+      padding: 10px;
+      color: var(--app_warn_color);
+      font-size: var(--input_font_size);
+    }
+    .confirm {
+      &:hover {
+        background-color: var(--app_warn_color) !important;
       }
-      div {
-        display: flex;
-        justify-content: space-around;
-        .confirm,
-        .cancel {
-          flex: 1;
-          text-align: center;
-          cursor: pointer;
-          color: var(--text_color);
-          transition: 0.2s;
-        }
-        .confirm {
-          &:hover {
-            background-color: var(--warn_col);
-          }
-        }
-        .cancel {
-          &:hover {
-            background-color: var(--select_col);
-          }
-        }
+    }
+    .cancel {
+      &:hover {
+        background-color: var(--app_active_color) !important;
       }
     }
   }
 }
+
 .trigger {
   position: fixed;
   top: 0;

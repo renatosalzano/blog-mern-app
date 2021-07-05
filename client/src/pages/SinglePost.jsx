@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { usePostState } from "../../hooks/usePostState";
-import Post404 from "../posts/detail/Post404";
-import PostLoading from "../posts/detail/PostLoading";
-import PostList from "../posts/PostList";
+import { usePostState } from "../hooks/usePostState";
+
+import PostLoading from "../components/posts/detail/PostLoading";
+import PostList from "../components/posts/PostList";
+import Post404 from "../components/posts/detail/Post404";
 
 const SinglePost = ({ user, match }) => {
   const {
@@ -39,7 +40,7 @@ const SinglePost = ({ user, match }) => {
           new_post_button={false}
         />
       ) : (
-        !loadingPost && <Post404 />
+        !loadingPost && <span className="no_post">Qui non c'è niente</span>
       )}
     </div>
   );

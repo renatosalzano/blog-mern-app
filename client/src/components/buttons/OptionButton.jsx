@@ -18,33 +18,19 @@ const OptionButton = ({
         {active && (
           <div className="option_list">
             {confirm ? (
-              <div className="confirm_delete">
-                <span>Conferma elimina</span>
-                <div>
-                  <span className="cancel" onClick={() => setConfirm(false)}>
-                    Annulla
-                  </span>
-                  <span
-                    className="confirm"
-                    onClick={() => option_delete(target_id)}
-                  >
-                    OK
-                  </span>
-                </div>
-              </div>
+              <ConfirmDel
+                cancel_event={() => setConfirm(false)}
+                delete_event={() => option_delete(target_id)}
+              />
             ) : (
-              <>
-                <span
-                  className="option"
-                  onClick={() => {
-                    option_edit(target_id);
-                    setActive("");
-                  }}
-                >{`Modifica ${target_name}`}</span>
-                <span className="option" onClick={() => setConfirm(true)}>
-                  {`Elimina ${target_name}`}
-                </span>
-              </>
+              <OptionList
+                edit_event={() => {
+                  option_edit(target_id);
+                  setActive("");
+                }}
+                delete_event={() => setConfirm(true)}
+                target_name={target_name}
+              />
             )}
           </div>
         )}
@@ -63,3 +49,31 @@ const OptionButton = ({
 };
 
 export default OptionButton;
+
+const ConfirmDel = ({ cancel_event, delete_event }) => {
+  return (
+    <>
+      <span className="list_head">Conferma elimina</span>
+      <span className="option cancel" onClick={cancel_event}>
+        Annulla
+      </span>
+      <span className="option confirm" onClick={delete_event}>
+        OK
+      </span>
+    </>
+  );
+};
+
+const OptionList = ({ edit_event, delete_event, target_name }) => {
+  return (
+    <>
+      <span
+        className="option"
+        onClick={edit_event}
+      >{`Modifica ${target_name}`}</span>
+      <span className="option" onClick={delete_event}>
+        {`Elimina ${target_name}`}
+      </span>
+    </>
+  );
+};

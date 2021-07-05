@@ -4,7 +4,8 @@ import UserPicture from "../../user/UserPicture";
 import OptionButton from "../../buttons/OptionButton";
 import EditComment from "./EditComment";
 import LikeContainer from "./LikeContainer";
-import CommentContent from "./CommentContent";
+import Content from "../detail/Content";
+
 const Comment = ({
   comment,
   author,
@@ -57,7 +58,7 @@ const Comment = ({
             option_edit={option_edit}
           />
         ) : (
-          <CommentContent text={comment.content} />
+          <Content text={comment.content} maxRow={5} maxLength={250} />
         )}
 
         {comment._id === edit_mode || <LikeContainer comment={comment} />}

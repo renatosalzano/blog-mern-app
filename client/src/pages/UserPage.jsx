@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { usePostState } from "../../hooks/usePostState";
-import { useUserPageState } from "../../hooks/useUserPageState";
-import PostLoading from "../posts/detail/PostLoading";
+import { usePostState } from "../hooks/usePostState";
+import { useUserPageState } from "../hooks/useUserPageState";
 
-import PostList from "../posts/PostList";
-import UserHeader from "../user/UserHeader";
-import UserPanel from "../user/UserPanel";
+import PostLoading from "../components/posts/detail/PostLoading";
+import PostList from "../components/posts/PostList";
+import UserHeader from "../components/user/UserHeader";
+import UserPanel from "../components/user/UserPanel";
 
 const UserPage = ({
   match,

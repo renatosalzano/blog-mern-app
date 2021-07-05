@@ -1,8 +1,8 @@
 import { memo, useEffect } from "react";
-import { usePostState } from "../../hooks/usePostState";
-import Post404 from "../posts/detail/Post404";
-import PostLoading from "../posts/detail/PostLoading";
-import PostList from "../posts/PostList";
+import { usePostState } from "../hooks/usePostState";
+import Post404 from "../components/posts/detail/Post404";
+import PostLoading from "../components/posts/detail/PostLoading";
+import PostList from "../components/posts/PostList";
 
 const PostPage = ({ match, user }) => {
   const type = match.params.type;
@@ -41,7 +41,7 @@ const PostPage = ({ match, user }) => {
           edit={edit}
         />
       ) : (
-        <Post404 />
+        <span className="no_post">Nessun post trovato</span>
       )}
     </div>
   );

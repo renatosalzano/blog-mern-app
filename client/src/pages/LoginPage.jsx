@@ -1,8 +1,9 @@
 import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { AuthContext } from "../../auth/AuthContext";
-import LogIn from "../login/LogIn";
-import SignUp from "../login/SignUp";
+import { AuthContext } from "../auth/AuthContext";
+// LOGIN COMPONENT
+import SignUp from "../components/login/SignUp";
+import LogIn from "../components/login/LogIn";
 
 const LogInPage = () => {
   const { signUp, setSignUp, clear_error_message, user } =

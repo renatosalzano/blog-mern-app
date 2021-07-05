@@ -42,7 +42,7 @@ const Post = ({
             user_name={author.user_name}
             is_link={true}
           />
-          <div>
+          <div className="post_info">
             <strong>{author.user_name}</strong>
             <span className="date">{convert_date(post.date)}</span>
           </div>
@@ -62,6 +62,8 @@ const Post = ({
             post_id={post._id}
             no_content_slice={no_content_slice}
             is_link={content_link}
+            maxRow={10}
+            maxLength={500}
           />
         </article>
         <Tags tag_arr={post.tags} />

@@ -88,7 +88,7 @@ export const useCommentState = (init) => {
 
   const sort_comments = useCallback((arr_to_sort) => {
     arr_to_sort.sort((a, b) => {
-      return new Date(b.comment.date) - new Date(a.comment.date);
+      return new Date(a.comment.date) - new Date(b.comment.date);
     });
     return setComments(arr_to_sort);
   }, []);
@@ -104,6 +104,7 @@ export const useCommentState = (init) => {
 
   const fetch_all_comment = async (post_id) => {
     setLoadingComment(true);
+    console.log("fetch comment...");
     const res = await find({ type: "FETCH_COMMENT", target: post_id });
     if (check_error(res)) return setLoadingComment(false); // fail
     setLoadingComment(false);

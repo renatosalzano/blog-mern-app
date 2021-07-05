@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { usePostState } from "../../hooks/usePostState";
-import PostLoading from "../posts/detail/PostLoading";
-import PostList from "../posts/PostList";
+import { usePostState } from "../hooks/usePostState";
+import PostLoading from "../components/posts/detail/PostLoading";
+import PostList from "../components/posts/PostList";
 
 const Home = ({ user }) => {
   const {
