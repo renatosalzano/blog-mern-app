@@ -88,7 +88,7 @@ export const useCommentState = (init) => {
 
   const sort_comments = useCallback((arr_to_sort) => {
     arr_to_sort.sort((a, b) => {
-      return new Date(a.comment.date) - new Date(b.comment.date);
+      return new Date(b.comment.date) - new Date(a.comment.date);
     });
     return setComments(arr_to_sort);
   }, []);
