@@ -42,12 +42,11 @@
   .scroll_container {
     display: block;
     overflow-y: auto;
-    padding-bottom: 30px;
+    padding-bottom: 100px;
   }
   .section {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     border-bottom: var(--app_border);
     .message,
     .error_message {

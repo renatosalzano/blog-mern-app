@@ -26,7 +26,7 @@ body,
   --app_warn_color: #cf2323;
   --app_shadow_color: #0000008f;
 
-  --header_padding: 40px;
+  --header_padding: 10px;
   --header_height: 40px;
 
   --input_label_font_color: #5292bd;
@@ -111,6 +111,7 @@ body,
   display: grid;
   grid-template-columns: auto minmax(auto, var(--app_main_column)) auto;
   grid-template-areas: ". page .";
+  padding-top: var(--header_height);
 }
 
 .page {
@@ -130,18 +131,30 @@ body,
 */
 
 .navbar {
-  position: relative;
+  position: fixed;
+  display: grid;
+  grid-template-columns: auto minmax(auto, var(--app_main_column)) auto;
+  grid-template-areas: ". navbar .";
+
+  width: 100%;
+
+  background-color: var(--header_bg_color);
+  box-shadow: var(--box_shadow);
+  z-index: 50;
+}
+
+.navbar_cell {
+  grid-area: navbar;
   display: flex;
-  flex-shrink: 0;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: var(--header_height) !important;
   padding: 0 var(--header_padding);
   gap: 10px;
-  background-color: var(--header_bg_color);
-  box-shadow: var(--box_shadow);
-  z-index: 50;
+}
+
+.homebar {
   .home_link {
     flex-shrink: 0;
     width: 40px;
@@ -156,6 +169,26 @@ body,
   }
   .login_link {
     flex-shrink: 0;
+  }
+}
+
+.userbar {
+  .home_link {
+    flex-shrink: 0;
+    width: 40px;
+    height: 100%;
+    text-decoration: none;
+    color: var(--text_color);
+    svg {
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+    }
+  }
+  .user_name {
+    flex: 1;
+    color: var(--text_color);
+    font-size: 20px;
   }
 }
 

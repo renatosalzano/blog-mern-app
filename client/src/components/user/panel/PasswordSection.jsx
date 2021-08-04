@@ -39,6 +39,7 @@ const PasswordSection = () => {
           label="Password Corrente:"
           onChange={input_handler}
           onFocus={clear_error}
+          onBlur={clear_error}
           error={error.password}
           error_message="obbligatoria"
         />
@@ -49,6 +50,7 @@ const PasswordSection = () => {
           label="Nuova Password:"
           onChange={input_handler}
           onFocus={clear_error}
+          onBlur={clear_error}
           error={error.new_password}
           error_message="obbligatoria"
         />

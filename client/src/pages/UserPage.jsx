@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { usePostState } from "../hooks/usePostState";
 import { useUserPageState } from "../hooks/useUserPageState";
 
@@ -13,6 +13,7 @@ const UserPage = ({
   update_account,
   user_panel,
   toggle_user_panel,
+  setUserinfo,
 }) => {
   const user_name = match.params.user_name;
   // POST USER
@@ -36,6 +37,23 @@ const UserPage = ({
   useEffect(() => {
     src_posts("user_name", user_name);
   }, [src_posts, user_name, user]);
+
+  //user info for navbar
+
+  const set_userinfo = useCallback(
+    (userinfo, match) => {
+      setUserinfo({
+        user_name: userinfo.user_name,
+        pic: userinfo.pic,
+        matched: match,
+      });
+    },
+    [setUserinfo]
+  );
+
+  useEffect(() => {
+    set_userinfo(userInfo, matched);
+  }, [set_userinfo, userInfo, matched]);
 
   return (
     <div className="page">

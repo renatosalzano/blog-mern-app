@@ -114,6 +114,7 @@
 */
 
 .user_menu {
+  grid-area: navbar;
   position: absolute;
   top: calc(var(--header_height) + 10px); //header height
   right: 10px;

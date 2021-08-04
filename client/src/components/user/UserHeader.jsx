@@ -1,16 +1,11 @@
-import SettingsButton from "../buttons/SettingsButton";
 import UserPicture from "./UserPicture";
 
-const UserHeader = ({ user, matched, settings_event }) => {
+const UserHeader = ({ user }) => {
   return (
     <div className="user_header">
       <UserPicture src={user.pic} user_name={user.user_name} />
 
-      <div className="head">
-        <strong>{user.user_name}</strong>
-
-        {matched && <SettingsButton onClick={settings_event} />}
-      </div>
+      <div className="head"></div>
 
       <div className="user_info">
         <span>{user.bio}</span>

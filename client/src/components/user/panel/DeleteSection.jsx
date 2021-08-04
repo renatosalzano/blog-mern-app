@@ -52,6 +52,7 @@ const DeleteForm = ({ cancel_event }) => {
           name="password"
           onChange={input_handler}
           onFocus={clear_error}
+          onBlur={clear_error}
         />
         <div className="button_container">
           <span className="cancel_button button" onClick={cancel_event}>

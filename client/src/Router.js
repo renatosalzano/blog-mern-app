@@ -9,11 +9,24 @@ import SinglePost from "./pages/SinglePost";
 import UserPage from "./pages/UserPage";
 
 const Router = () => {
-  const { user, log_out, update_account, toggle_edit_mode, editMode } =
-    useContext(AuthContext);
+  const {
+    user,
+    userinfo,
+    setUserinfo,
+    log_out,
+    update_account,
+    toggle_edit_mode,
+    editMode,
+  } = useContext(AuthContext);
   return (
     <BrowserRouter>
-      <Navbar user={user} log_out={log_out} />
+      <Navbar
+        user={user}
+        log_out={log_out}
+        userinfo={userinfo}
+        setUserinfo={setUserinfo}
+        toggle_edit_mode={toggle_edit_mode}
+      />
       <div className="page_container">
         <Switch>
           <Route exact path="/">
@@ -38,6 +51,7 @@ const Router = () => {
               <UserPage
                 {...props}
                 user={user}
+                setUserinfo={setUserinfo}
                 update_account={update_account}
                 user_panel={editMode}
                 toggle_user_panel={toggle_edit_mode}

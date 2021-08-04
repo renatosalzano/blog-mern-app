@@ -5,6 +5,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(undefined);
+  const [userinfo, setUserinfo] = useState(undefined);
   const [signUp, setSignUp] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [newPost, setNewPost] = useState(false);
@@ -18,7 +19,7 @@ export const AuthProvider = ({ children }) => {
         return false;
       case 400:
         console.warn("400 " + res.statusText);
-        console.log(res);
+        console.warn(res);
         setErrorMessage(res.data.error_message);
         return true;
       case 401:
@@ -67,6 +68,8 @@ export const AuthProvider = ({ children }) => {
     return setUser((user) => (user = res.data.user_info)); // => token OK
   }, [auth]);
 
+  // UPDATE ACCOUNT
+
   const update_account = async ({ filter, req_obj }) => {
     const res = await auth({
       type: "UPDATE_USER",
@@ -91,6 +94,7 @@ export const AuthProvider = ({ children }) => {
   const log_out = async () => {
     await auth({ type: "LOG_OUT" });
     setUser(undefined);
+    setEditMode(false);
   };
 
   const delete_account = async (string) => {
@@ -145,6 +149,8 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         user,
+        userinfo,
+        setUserinfo,
         setUser,
         update_account,
         delete_account,

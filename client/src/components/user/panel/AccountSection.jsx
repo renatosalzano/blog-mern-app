@@ -6,8 +6,8 @@ import InputText from "../../inputs/InputText";
 
 const AccountSection = ({ user_name, email }) => {
   const history = useHistory();
-  const { update_account, log_out } = useContext(AuthContext);
-  const { input, input_handler } = useInputText({
+  const { update_account, log_out, errorMessage } = useContext(AuthContext);
+  const { input, input_handler, clear_error } = useInputText({
     user_name: "",
     email: "",
   });
@@ -23,21 +23,26 @@ const AccountSection = ({ user_name, email }) => {
     if (!input.user_name) {
       req_obj = { email: input.email };
     }
-    if (update_account({ req_obj: req_obj, filter: "account" })) {
-      history.push("/login");
+    if (await update_account({ req_obj: req_obj, filter: "account" })) {
+      history.push("/home");
       return log_out();
+    } else {
+      return;
     }
   };
 
   return (
     <div className="section">
       <span className="message">Dovrai rieffettuare l'accesso</span>
+      {errorMessage && <span className="message">{errorMessage}</span>}
       <form className="form_ctrl" onSubmit={update_event}>
         <InputText
           value={input.user_name}
           type="text"
           name="user_name"
           label="Nome Utente:"
+          onFocus={clear_error}
+          onBlur={clear_error}
           onChange={input_handler}
           placeholder={user_name}
         />
@@ -47,6 +52,8 @@ const AccountSection = ({ user_name, email }) => {
           type="email"
           name="email"
           label="Email:"
+          onFocus={clear_error}
+          onBlur={clear_error}
           onChange={input_handler}
           placeholder={email}
         />
