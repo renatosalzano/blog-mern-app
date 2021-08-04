@@ -32,7 +32,7 @@ const DeleteForm = ({ cancel_event }) => {
     evt.preventDefault();
     if (check_error({ required_field: ["password"] })) return;
     if (await delete_account(input.password)) {
-      history.push("/login");
+      history.push("/home");
       return log_out();
     }
   };

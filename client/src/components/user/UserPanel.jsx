@@ -8,7 +8,7 @@ import PasswordSection from "./panel/PasswordSection";
 import DeleteSection from "./panel/DeleteSection";
 
 const UserPanel = ({ close_event, update_account }) => {
-  const { user } = useContext(AuthContext);
+  const { user, clear_error_message } = useContext(AuthContext);
   const { user_name, email, bio, pic } = user;
   return (
     <div className="user_panel_container">
@@ -24,6 +24,7 @@ const UserPanel = ({ close_event, update_account }) => {
             section_class="public_section"
             section_name="Profilo Pubblico"
             is_open={true}
+            clear_error_message={clear_error_message}
             component={
               <PublicSection
                 update_account={update_account}
@@ -35,16 +36,19 @@ const UserPanel = ({ close_event, update_account }) => {
           <Section
             section_class="account_section"
             section_name="Account"
+            clear_error_message={clear_error_message}
             component={<AccountSection user_name={user_name} email={email} />}
           />
           <Section
             section_class="password_section"
             section_name="Aggiorna Password"
+            clear_error_message={clear_error_message}
             component={<PasswordSection />}
           />
           <Section
             section_class="delete_section"
             section_name="Elimina Account"
+            clear_error_message={clear_error_message}
             component={<DeleteSection />}
           />
         </div>
@@ -55,10 +59,17 @@ const UserPanel = ({ close_event, update_account }) => {
 
 export default UserPanel;
 
-const Section = ({ section_name, section_class, component, is_open }) => {
+const Section = ({
+  section_name,
+  section_class,
+  component,
+  is_open,
+  clear_error_message,
+}) => {
   const [open, setOpen] = useState(is_open ? "open" : "");
   const toggle_open = () => {
     if (open) return setOpen("");
+    clear_error_message();
     return setOpen("open");
   };
   return (

@@ -112,6 +112,7 @@ body,
   grid-template-columns: auto minmax(auto, var(--app_main_column)) auto;
   grid-template-areas: ". page .";
   padding-top: var(--header_height);
+  padding-bottom: 100px;
 }
 
 .page {
@@ -173,7 +174,8 @@ body,
 }
 
 .userbar {
-  .home_link {
+  .home_link,
+  .settings_button {
     flex-shrink: 0;
     width: 40px;
     height: 100%;

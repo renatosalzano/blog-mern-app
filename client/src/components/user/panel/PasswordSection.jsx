@@ -8,7 +8,7 @@ const required_field = { required_field: ["password", "new_password"] };
 
 const PasswordSection = () => {
   const history = useHistory();
-  const { update_account, log_out } = useContext(AuthContext);
+  const { update_account, log_out, errorMessage } = useContext(AuthContext);
   const { input, input_handler, clear_error, check_error, error } =
     useInputText({
       password: "",
@@ -22,15 +22,18 @@ const PasswordSection = () => {
       password: input.password,
       new_password: input.new_password,
     };
-    if (update_account({ req_obj: req_obj, filter: "password" })) {
-      history.push("/login");
+    if (await update_account({ req_obj: req_obj, filter: "password" })) {
+      history.push("/home");
       return log_out();
+    } else {
+      return; // view error
     }
   };
 
   return (
     <div className="section">
       <span className="message">Dovrai rieffettuare l'accesso</span>
+      {errorMessage && <span className="message">{errorMessage}</span>}
       <form onSubmit={update_event} className="form_ctrl">
         <InputText
           value={input.password}

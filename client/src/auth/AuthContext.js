@@ -24,17 +24,15 @@ export const AuthProvider = ({ children }) => {
         return true;
       case 401:
         console.warn("401 " + res.statusText);
-        setUser(undefined);
+        setErrorMessage(res.data.error_message);
         return true;
       case 403:
         console.warn("409 " + res.statusText);
         setErrorMessage(res.data.error_message);
-        setUser(undefined);
         return true;
       case 409:
         console.warn("404 " + res.statusText);
         setErrorMessage(res.data.error_message);
-        setUser(undefined);
         return true;
       case 500:
         console.warn("500 " + res.statusText);
@@ -77,7 +75,9 @@ export const AuthProvider = ({ children }) => {
       req_obj: req_obj,
     });
 
-    if (check_error(res)) return false; // => update fail
+    if (check_error(res)) {
+      return false;
+    } // => update fail
     if (filter !== "public") {
       return true; // => update success, login required
     }

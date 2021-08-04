@@ -8,10 +8,8 @@ import { useEffect } from "react";
 const Navbar = ({ user, userinfo, setUserinfo, toggle_edit_mode }) => {
   let location = useLocation();
   useEffect(() => {
-    console.log(userinfo);
     if (userinfo) {
       let user_name = userinfo.user_name;
-      console.log(`/user/${user_name}`);
       if (location.pathname !== `/user/${user_name}`) {
         setUserinfo(undefined);
       }
