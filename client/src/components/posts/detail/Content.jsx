@@ -1,7 +1,14 @@
-import { memo, useCallback, useEffect, useState, post_id } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Content = ({ text, maxRow, maxLength, no_content_slice, is_link }) => {
+const Content = ({
+  text,
+  maxRow,
+  maxLength,
+  no_content_slice,
+  is_link,
+  post_id,
+}) => {
   const [content, setContent] = useState(text);
   const [expandButton, setExpandButton] = useState(false);
 
